@@ -21,9 +21,7 @@ public class ShowPhotoActivity extends AppCompatActivity {
                 .makeSceneTransitionAnimation(activity, transitionView, "image");
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
-
     private ImageView mImageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
