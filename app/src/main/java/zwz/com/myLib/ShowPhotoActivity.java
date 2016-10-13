@@ -13,7 +13,6 @@ import com.squareup.picasso.Picasso;
 
 public class ShowPhotoActivity extends AppCompatActivity {
 
-    private ImageView mImageView;
     public static void launch(AppCompatActivity activity, View transitionView, String url) {
         Intent intent = new Intent(activity, ShowPhotoActivity.class);
         intent.putExtra("url", url);
@@ -23,6 +22,7 @@ public class ShowPhotoActivity extends AppCompatActivity {
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
 
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
