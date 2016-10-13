@@ -30,7 +30,6 @@ public class ShowPhotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_photo);
         mImageView= (ImageView) findViewById(R.id.imageView);
         ViewCompat.setTransitionName(mImageView, "image");
-
         Intent intent  = getIntent();
         String url=intent.getStringExtra("url");
         Picasso.with(this).load(url).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(mImageView);
