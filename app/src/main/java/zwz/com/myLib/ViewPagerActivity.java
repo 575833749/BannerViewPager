@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,9 +26,10 @@ public class ViewPagerActivity extends AppCompatActivity {
         initBanner();
     }
 
+
     private void initBanner() {
         //自定义你的Holder，实现更多复杂的界面，不一定是图片翻页，其他任何控件翻页亦可。
-        List<String> mBannerList=new ArrayList();
+        final List<String> mBannerList=new ArrayList();
         mBannerList.add("http://img05.tooopen.com/images/20140604/sy_62331342149.jpg");
         mBannerList.add("http://pic5.nipic.com/20100121/1396946_104643942888_2.jpg");
         mDiyBanner.setPages(
@@ -43,7 +43,7 @@ public class ViewPagerActivity extends AppCompatActivity {
                 .setPageIndicator(new int[]{R.drawable.shape_page_indicator_nomal, R.drawable.shape_page_indicator_select})
                 //设置指示器的方向
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
-                .startTurning(3000)
+                .startTurning(3000);
         ;
         //设置翻页的效果，不需要翻页效果可用不设
         //.setPageTransformer(Transformer.DefaultTransformer);    集成特效之后会有白屏现象，新版已经分离，如果要集成特效的例子可以看Demo的点击响应。
@@ -52,7 +52,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         mDiyBanner.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Toast.makeText(ViewPagerActivity.this, "position="+position, Toast.LENGTH_SHORT).show();
+                ShowPhotoActivity.launch(ViewPagerActivity.this,mDiyBanner,mBannerList.get(position));
             }
         });
     }
@@ -63,12 +63,6 @@ public class ViewPagerActivity extends AppCompatActivity {
         public View createView(Context context) {
             imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            /*imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //                    toActivity(new Intent(context, AccountSuccessActivity.class));
-                }
-            });*/
             return imageView;
         }
 
