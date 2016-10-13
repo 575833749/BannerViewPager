@@ -16,12 +16,14 @@ public class ShowPhotoActivity extends AppCompatActivity {
     private ImageView mImageView;
 
     public static void launch(AppCompatActivity activity, View transitionView, String url) {
+
         Intent intent = new Intent(activity, ShowPhotoActivity.class);
         intent.putExtra("url", url);
         // 这里指定了共享的视图元素
         ActivityOptionsCompat options = ActivityOptionsCompat
                 .makeSceneTransitionAnimation(activity, transitionView, "image");
         ActivityCompat.startActivity(activity, intent, options.toBundle());
+
     }
 
 
