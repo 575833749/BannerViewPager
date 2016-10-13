@@ -18,7 +18,6 @@ public class ShowPhotoActivity extends AppCompatActivity {
         // 这里指定了共享的视图元素
         ActivityOptionsCompat options = ActivityOptionsCompat
                 .makeSceneTransitionAnimation(activity, transitionView, "image");
-
         ActivityCompat.startActivity(activity, intent, options.toBundle());
     }
 
