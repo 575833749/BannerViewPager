@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 public class ShowPhotoActivity extends AppCompatActivity {
+
     private ImageView mImageView;
     public static void launch(AppCompatActivity activity, View transitionView, String url) {
         Intent intent = new Intent(activity, ShowPhotoActivity.class);
